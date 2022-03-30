@@ -58,17 +58,17 @@ vector<RegularExpression> readRegExpressions(string file_path) {
 }
 
 void createIndexHtml(){
-    ofstream index("index.html");
     ifstream html_template("./templates/template.html");
     ifstream highlighted_syntax_file("./helpers/highlighted_syntax.html");
     string template_line, highlighted_syntax;
+    ofstream index("index.html");
     
     //Getting content from highlighted_syntax_file
     getline(highlighted_syntax_file, highlighted_syntax);
 
     while(getline(html_template, template_line)){
         index << template_line << "\n";
-        if(template_line.find("id=\"code\"") != string::npos){
+        if(template_line.find("id=\"code\"")){
             index << highlighted_syntax; 
         }
     }
@@ -84,6 +84,7 @@ int main(){
     system("flex helpers/lexer.l");
     system("gcc helpers/scanner.c -o scanner");
     system("scanner");
+    
     // Build index.html
     createIndexHtml();
 

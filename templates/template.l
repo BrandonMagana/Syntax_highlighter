@@ -15,7 +15,7 @@
 int yywrap(){}
 int main(int argc, char **argv) {
 
-    yyin = fopen("./inputs/data.txt", "r");
+    yyin = fopen("./inputs/text_input.txt", "r");
     yyout = fopen("./helpers/highlighted_syntax.html", "w");
     yylex();
     fclose(yyin);

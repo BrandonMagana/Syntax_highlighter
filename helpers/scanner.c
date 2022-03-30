@@ -287,7 +287,7 @@ static void yy_fatal_error YY_PROTO(( yyconst char msg[] ));
 #define YY_END_OF_BUFFER 17
 static yyconst short int yy_accept[108] =
     {   0,
-        0,    0,   17,   16,   14,   13,   15,   11,   16,    4,
+        5,    5,   17,   16,   14,   13,   15,   11,   16,    4,
        11,   16,    2,    9,   16,    5,    8,   11,    8,    7,
         7,    7,    7,    2,    7,    7,    7,    7,    7,    7,
         7,    7,    7,    7,    7,    7,    7,    7,    7,    8,
@@ -1672,7 +1672,7 @@ int main()
 int yywrap(){}
 int main(int argc, char **argv) {
 
-    yyin = fopen("./inputs/data.txt", "r");
+    yyin = fopen("./inputs/text_input.txt", "r");
     yyout = fopen("./helpers/highlighted_syntax.html", "w");
     yylex();
     fclose(yyin);

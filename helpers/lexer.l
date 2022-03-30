@@ -10,7 +10,7 @@
 "("|")"|"{"|"}"|"["|"]" {fprintf(yyout, "<span class='color-2'>%s</span>", yytext);}
 "true"|"false"|"True"|"False"|"null"|"void"|"string"|"int"|"None"|"public" {fprintf(yyout, "<span class='color-3'>%s</span>", yytext);}
 "//".*|"#".* {fprintf(yyout, "<span class='color-4'>%s</span>", yytext);}
-[0-9]+ {fprintf(yyout, "<span class='color-5'>%s</span>", yytext);}
+[0-9]* {fprintf(yyout, "<span class='color-5'>%s</span>", yytext);}
 [0-9]+"."[0-9]+ {fprintf(yyout, "<span class='color-6'>%s</span>", yytext);}
 [A-z]([A-z]|[0-9]|"_")* {fprintf(yyout, "<span class='color-7'>%s</span>", yytext);}
 "<="|">="|"=="|"!="|"<"|">" {fprintf(yyout, "<span class='color-8'>%s</span>", yytext);}
@@ -27,7 +27,7 @@
 int yywrap(){}
 int main(int argc, char **argv) {
 
-    yyin = fopen("./inputs/data.txt", "r");
+    yyin = fopen("./inputs/text_input.txt", "r");
     yyout = fopen("./helpers/highlighted_syntax.html", "w");
     yylex();
     fclose(yyin);
