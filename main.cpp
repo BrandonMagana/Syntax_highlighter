@@ -68,7 +68,7 @@ void createIndexHtml(){
 
     while(getline(html_template, template_line)){
         index << template_line << "\n";
-        if(template_line.find("id=\"code\"")){
+        if(template_line.find("id=\"code\"") != string::npos){
             index << highlighted_syntax; 
         }
     }

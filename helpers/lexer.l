@@ -6,17 +6,17 @@
 
 %%
 
-"if"|"or"|"while"|"return"|"for"|"in"|"class"|"def"|"try"|"else"|"raise"|"from"|"import"|"except"|"as" {fprintf(yyout, "<span class='color-1'>%s</span>", yytext);}
+"if"|"for"|"while"|"or"|"else"|"return"|"in"|"class"|"def"|"catch"|"public"|"return"|"continue"|"using"|"namespace" {fprintf(yyout, "<span class='color-1'>%s</span>", yytext);}
 "("|")"|"{"|"}"|"["|"]" {fprintf(yyout, "<span class='color-2'>%s</span>", yytext);}
-"true"|"false"|"True"|"False"|"null"|"void"|"string"|"int"|"None"|"public" {fprintf(yyout, "<span class='color-3'>%s</span>", yytext);}
-"//".*|"#".* {fprintf(yyout, "<span class='color-4'>%s</span>", yytext);}
-[0-9]* {fprintf(yyout, "<span class='color-5'>%s</span>", yytext);}
+"true"|"false"|"True"|"False" {fprintf(yyout, "<span class='color-3'>%s</span>", yytext);}
+"#".*|"%".*|"//".* {fprintf(yyout, "<span class='color-4'>%s</span>", yytext);}
+[0-9]+ {fprintf(yyout, "<span class='color-5'>%s</span>", yytext);}
 [0-9]+"."[0-9]+ {fprintf(yyout, "<span class='color-6'>%s</span>", yytext);}
-[A-z]([A-z]|[0-9]|"_")* {fprintf(yyout, "<span class='color-7'>%s</span>", yytext);}
+[a-zA-Z_]+[a-zA-Z0-9_]* {fprintf(yyout, "<span class='color-7'>%s</span>", yytext);}
 "<="|">="|"=="|"!="|"<"|">" {fprintf(yyout, "<span class='color-8'>%s</span>", yytext);}
 "\."|","|";"|":" {fprintf(yyout, "<span class='color-9'>%s</span>", yytext);}
 "'"."'" {fprintf(yyout, "<span class='color-10'>%s</span>", yytext);}
-"!"|"%"|"^"|"+"|"="|"-"|"*" {fprintf(yyout, "<span class='color-11'>%s</span>", yytext);}
+"!"|"%"|"^"|"+"|"="|"-"|"*"|"/" {fprintf(yyout, "<span class='color-11'>%s</span>", yytext);}
 "\"".*"\"" {fprintf(yyout, "<span class='color-12'>%s</span>", yytext);}
 \n {fprintf(yyout, "<br>", "");}
 [\t] {fprintf(yyout, "&emsp;", "");}
